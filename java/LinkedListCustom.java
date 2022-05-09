@@ -38,3 +38,15 @@ Node(int d){
 
     }
 }
+
+
+// How to create Custom Linked List ?
+//  create LinkedList contains (no:1-3)
+//  1- a head Node
+//  2- Class To the Node (contains : next , value)
+//      3- constructor of the Node class (take d ) & initialize the (next , value)
+// ______________(in the main method )______________
+//   1- create an obj from the linked list class .
+//   2- Assign the values of the ele in the linkedList .
+//   3- Connect the nodes .
+//   4- print the Nodes .
