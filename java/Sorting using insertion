@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class lol {
+    public static void main(String[] args) {
+        //1.Create an array of strings containing your first name, middle name, and last name.
+        String[] myName = {"name", "free", "lokl"};
+        //2.Sort the array using the insertion sort; I used it because the problem has a small array and
+
+        // it's stable more than the merge sort
+        // The time complexity of this algorithm is O(n^2) => O(3^2)=O(9)
+        System.out.println("the original array:  "+Arrays.toString(myName));
+        SortMyName(myName);
+    }
+
+    private static void SortMyName(String[] myName) {
+        for (int i = 1; i < myName.length; i++) {
+            String key = myName[i];
+            int j = i - 1;
+            while (j >= 0 && myName[j].compareTo(key) > 0) {
+                myName[j + 1] = myName[j];
+                j = j - 1;
+            }
+            myName[j + 1] = key;
+        }
+
+            System.out.print("the sorted array:  "+ Arrays.toString(myName));
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
