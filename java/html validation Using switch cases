@@ -1,0 +1,205 @@
+import java.util.*;
+
+public class lol {
+    public static void main(String[] args) {
+        System.out.println(" _________ The Solution _________");
+        // test cases :
+        String [] TestCase1 = {"<div>","<h1>","Algorithms are Fun"," </h1>","</div>"} ; // valid
+        String [] TestCase2 = {"<div>","<span>","</div>","</span>"} ; // invalid
+        String [] TestCase3 = {"<html>","</head>","<head>","</html>"} ; // invalid
+        String [] TestCase4 = {"<html>","<head>","</head>","<body>","</body>"} ; // invalid
+
+
+
+        // Main array :
+        String [] HTMLCode = {};
+        HTMLCode = TestCase1;
+        System.out.println(Arrays.toString(HTMLCode) +" : "+(HTMLValidate(HTMLCode) ? "Valid" : "Invalid"));
+        HTMLCode = TestCase2;
+        System.out.println(Arrays.toString(HTMLCode) +" : "+(HTMLValidate(HTMLCode) ? "Valid" : "Invalid"));
+
+        HTMLCode = TestCase3;
+        System.out.println(Arrays.toString(HTMLCode) +" : "+(HTMLValidate(HTMLCode) ? "Valid" : "Invalid"));
+
+        HTMLCode = TestCase4;
+        System.out.println(Arrays.toString(HTMLCode) +" : "+(HTMLValidate(HTMLCode) ? "Valid" : "Invalid"));
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private static boolean HTMLValidate(String [] HTMLCode) {
+        Stack<String> stack = new Stack<>();
+        boolean isValid = true;
+            if (HTMLCode.length > 1) {
+                for (String s : HTMLCode) {
+
+                    if (s.contains("<") && s.contains(">")) {
+
+
+                        switch (s) {
+
+                            case "<div>":
+                                stack.push("<div>");
+                                break;
+
+                            case "</div>":  // if the stack is empty
+                                if (stack.isEmpty()) {
+                                    isValid = false;
+                                    break;
+                                }
+                                if (Objects.equals(stack.peek(), "<div>")) {
+                                    stack.pop();
+
+                                }
+                                else {
+                                    isValid = false;
+                                    break;
+                                }
+                                break;
+
+                            case "<h1>":
+                                stack.push("<h1>");
+                                break;
+                            case "</h1>":
+                                if (stack.isEmpty()) {
+                                    isValid = false;
+                                    break;
+                                }
+                                if (Objects.equals(stack.peek(), "<h1>")) {
+                                    stack.pop();
+                                    isValid = true;
+                                }
+                                else {
+                                    return isValid = false;                                }
+                                break;
+
+
+                            case "<span>":
+                                stack.push("<span>");
+                                break;
+                            case "</span>":
+                                if (stack.isEmpty()) {
+                                    isValid = false;
+                                    break;
+                                }
+                                if (Objects.equals(stack.peek(), "<span>")) {
+                                    stack.pop();
+                                    isValid = true;
+                                } else {
+                                    return isValid = false;                                }
+                                break;
+
+
+                            case "<html>":
+                                stack.push("<html>");
+                                break;
+
+                            case "</html>":
+                                if (stack.isEmpty()) {
+                                    isValid = false;
+                                    break;
+                                }
+                                if (Objects.equals(stack.peek(), "<html>")) {
+                                    stack.pop();
+                                    isValid = true;
+                                } else {
+
+                                    return isValid = false;                                }
+                                break;
+
+
+                            case "<head>":
+                                stack.push("<head>");
+                                break;
+                            case "</head>":
+                                if (stack.isEmpty()) {
+                                    isValid = false;
+                                    break;
+                                }
+                                if (Objects.equals(stack.peek(), "<head>")) {
+                                    stack.pop();
+                                    isValid = true;
+                                } else {
+
+                                    return isValid = false;                                }
+                                break;
+
+
+                            case "<body>":
+                                stack.push("<body>");
+                                break;
+                            case "</body>":
+                                if (stack.isEmpty()) {
+                                    isValid = false;
+                                    break;
+                                }
+                                if (Objects.equals(stack.peek(), "<body>")) {
+                                    stack.pop();
+                                    isValid = true;
+                                } else {
+
+                                    return isValid = false;
+                                }
+                                break;
+
+                            case "<p>":
+                                stack.push("<p>");
+                                break;
+                            case "</p>":
+                                if (stack.isEmpty()) {
+                                    isValid = false;
+                                    break;
+                                }
+                                if (Objects.equals(stack.peek(), "<p>")) {
+                                    stack.pop();
+                                    isValid = true;
+
+                                }
+                                else {
+                                    return isValid = false;
+
+                                }
+                                break;
+
+                            default:
+                                return isValid = true;
+
+
+                        }
+                        if (stack.isEmpty()) {
+                            isValid = true;
+                        }else {
+                            isValid = false;
+
+                        }}
+
+
+                }
+                if (stack.isEmpty()) {
+                    isValid = true;
+                }else {
+                    isValid = false;
+
+                }
+
+            }
+
+
+            return isValid;
+    }
+}
