@@ -1,0 +1,35 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class deleteClass {
+    public deleteClass(){
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("enter the String");
+        String stringInput= scan.nextLine();
+        scan.nextLine();
+        System.out.println("How many chars ? :");
+        String[] charArray = new String [scan.nextInt()];
+        scan.nextLine();
+        for (int i = 0; i < charArray.length; i++)
+        {
+            System.out.println("Enter a Char :");
+
+            charArray[i] = scan.nextLine();
+
+        }
+
+        for (String s : charArray) {
+            if (stringInput.contains(s)) {
+                for (int j = 0; j < stringInput.length(); j++) {
+                    if (stringInput.charAt(j) == s.charAt(0) ) {
+                        stringInput = stringInput.substring(0, j) + stringInput.substring(j + 1);
+
+                    }
+                }
+            }
+        }
+
+        System.out.println(stringInput);
+    }
+}
