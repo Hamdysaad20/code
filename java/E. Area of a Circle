@@ -1,0 +1,21 @@
+import java.io.*;
+public class main {
+    public static void main(String[] args) throws IOException {
+CircleArea circleArea = new CircleArea();
+
+double val=  circleArea.CircleArea(2);
+        BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
+        bw.write( String.valueOf(val) );
+        bw.close();
+
+    }
+}
+
+
+---
+public class CircleArea {
+    public double CircleArea(double r){
+        return 3.14*Math.pow(r,2.00) ;
+
+    }
+}
