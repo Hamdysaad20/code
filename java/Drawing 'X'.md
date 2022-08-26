@@ -3,7 +3,7 @@
 - memory limit per test256 megabytes
 - inputstandard input
 - outputstandard output
-
+ 
 
  Some day, an artist wanted to draw an X mark on the wall in a fashionable way.
 
