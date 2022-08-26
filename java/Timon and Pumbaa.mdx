@@ -1,0 +1,61 @@
+# A. Timon and Pumbaa
+- time limit per test1 second
+- memory limit per test256 megabytes
+- inputstandard input
+- outputstandard output
+## Timon has a candies and his friend, Pumbaa, has b candies, so Pumbaa asked Timon to tell him the value of a−b. However, Timon will tell him the value of a−b if the value is ≥0; otherwise, he will lie and say 0. Since it was a hard task for Timon, he's asking for your help.
+
+Given two numbers a and b, find the answer.
+
+## Input
+Only one line containing two numbers a,b (1≤a,b≤109).
+
+## Output
+Print the answer as specified in the statement.
+
+## Examples
+### input
+9 1
+output
+8
+input
+1 9
+output
+0
+
+```java
+import java.io.*;
+
+public class mainClass {
+    public static void main(String[] args) throws IOException {
+       int [] arrOfNums = new int[2];
+       int i=0;
+        while (i < 2) {
+
+        InputStreamReader read=new InputStreamReader(System.in);
+        BufferedReader in=new BufferedReader(read);
+        int number=Integer.parseInt(in.readLine());
+arrOfNums[i]=number;
+i++;
+        }
+        new timonANDpumba(arrOfNums[0], arrOfNums[1]);
+    }
+}
+
+
+
+
+```
+
+---
+
+```java
+public class timonANDpumba {
+    public  timonANDpumba(int a ,int b){
+        System.out.println(Math.max(a - b, 0));
+
+    }
+} 
+
+```
+
